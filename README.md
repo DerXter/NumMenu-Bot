@@ -9,7 +9,7 @@ _NumMenu Bot_ is an example chatbot showing a way to design a number-based menu 
 The goal is to give some design ideas and the bot could be further optimized.  
 Feel free to contact me on [Twitter](https://twitter.com/derguene) to share your ideas or discuss.  
 
-![image](./illustration.jpg)
+<img src="./illustration.jpg" width="500">
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
