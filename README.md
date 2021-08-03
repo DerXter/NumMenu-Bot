@@ -1,8 +1,15 @@
 # NumMenu Bot
 
-_NumMenu Bot_ is an example chatbot showing a way to design a number-based menu assistant with [Rasa](https://rasa.com/). This type of bot is very useful on platforms like [Whatsapp](https://botscrew.com/blog/a-step-by-step-guide-to-create-chatbot-for-whatsapp-for-business/) where buttons may not render well.
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
+![Issues](https://img.shields.io/github/issues/DerXter/NumMenu-Bot)
+![PR](https://img.shields.io/github/issues-pr/DerXter/NumMenu-Bot)
+[![Open Source Love png1](https://badges.frapsoft.com/os/v1/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badges/)
+
+_NumMenu Bot_ is an example chatbot showing a way to design a number-based menu assistant with [Rasa](https://rasa.com/). This type of bot is very useful on platforms like [Whatsapp](https://rasa.com/docs/rasa/connectors/twilio/) where buttons may not render well.
 The goal is to give some design ideas and the bot could be further optimized.  
 Feel free to contact me on [Twitter](https://twitter.com/derguene) to share your ideas or discuss.  
+
+![image](./illustration.jpg)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -73,3 +80,12 @@ From there, you can use the option numbers to choose a framework.
 
 
 Don't forget to leave a star if it was useful to you 😁
+
+## Contributing
+
+Feel free to make a PR or report an issue 😃
+
+## Contributors
+
+[![My Twitter Link](https://img.shields.io/twitter/follow/derguene?style=social)](https://twitter.com/derguene)
+

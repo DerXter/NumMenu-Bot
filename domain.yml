@@ -30,15 +30,15 @@ slots:
 
 responses:
   utter_greet:
-  - text: "Hello! I'm NumMenu, your numbered-based menu bot. action_handle_ your favorite Deep Learning Framework:\n
-  1. PyTorch \n
-  2. TensorFlow \n
-  3. DeepLearning4J \n
-  4. CNTK \n
-  5. Keras \n
-  6. ONNX \n
-  7. MXNET \n
-  8. Caffe \n"
+  - text: "Hello! I'm NumMenu, your numbered-based menu bot. Choose your favorite Deep Learning Framework:\n
+  1. PyTorch 🔥\n
+  2. TensorFlow 🌊\n
+  3. DeepLearning4J ☕️\n
+  4. CNTK 🧠\n
+  5. Keras 🔗\n
+  6. ONNX 🌐\n
+  7. MXNET 🎛️\n
+  8. Caffe ⚡️\n"
 
   utter_cheer_up:
   - text: "Here is something to cheer you up:"
