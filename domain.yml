@@ -1,0 +1,61 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - give_option
+
+actions:
+- action_handle_options
+- action_handle_pytorch
+- action_handle_tensorflow
+- action_handle_deeplearning4j
+- action_handle_cntk
+- action_handle_keras
+- action_handle_onnx
+- action_handle_mxnet
+- action_handle_caffe
+
+entities:
+- option
+
+slots:
+  option:
+    type: text
+
+responses:
+  utter_greet:
+  - text: "Hello! I'm NumMenu, your numbered-based menu bot. action_handle_ your favorite Deep Learning Framework:\n
+  1. PyTorch \n
+  2. TensorFlow \n
+  3. DeepLearning4J \n
+  4. CNTK \n
+  5. Keras \n
+  6. ONNX \n
+  7. MXNET \n
+  8. Caffe \n"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
