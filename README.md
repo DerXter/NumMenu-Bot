@@ -88,4 +88,3 @@ Feel free to make a PR or report an issue 😃
 ## Contributors
 
 [![My Twitter Link](https://img.shields.io/twitter/follow/derguene?style=social)](https://twitter.com/derguene)
-

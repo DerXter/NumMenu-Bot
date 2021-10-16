@@ -19,29 +19,42 @@ class ActionHandleOptions(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        option2action_name =   {1: "action_handle_pytorch",
-                                2: "action_handle_tensorflow",
-                                3: "action_handle_deeplearning4j",
-                                4: "action_handle_cntk",
-                                5: "action_handle_keras",
-                                6: "action_handle_onnx",
-                                7: "action_handle_mxnet",
-                                8: "action_handle_caffe"}
+        # The default value is main
+        submenu = tracker.get_slot("submenu")
+        option2action_name =   {"main": {
+                                    1: "action_handle_pytorch",
+                                    2: "action_handle_tensorflow",
+                                    3: "action_handle_deeplearning4j",
+                                    4: "action_handle_cntk",
+                                    5: "action_handle_keras",
+                                    6: "action_handle_onnx",
+                                    7: "action_handle_mxnet",
+                                    8: "action_handle_caffe"},
+                                "pytorch_version": {
+                                    1: ("action_handle_pytorch", "0.x"),
+                                    2: ("action_handle_pytorch", "1.x"),
+                                    }
+                                }
         try:
             option = int(tracker.get_slot("option"))
         except ValueError:
             dispatcher.utter_message(text=f"Please enter a number!")
             return [SlotSet('option', None)]
         try:
-            next_action = option2action_name[option]
+            next_action = option2action_name[submenu][option]
         except KeyError:
             dispatcher.utter_message(text=f"This option is not available!")
             return [SlotSet('option', None)]
 
         dispatcher.utter_message(text=f"You've choosen option {option} !")
 
-        return [SlotSet('option', None),
-                FollowupAction(name=next_action)]
+        if type(next_action) is tuple:
+            return [SlotSet('option', None),
+                    SlotSet('suboption', next_action[1]),
+                    FollowupAction(name=next_action[0])]
+        else:
+            return [SlotSet('option', None),
+                    FollowupAction(name=next_action)]
 
 # source of framework descriptions: https://marutitech.com/top-8-deep-learning-frameworks/
 class ActionHandlePyTorch(Action):
@@ -52,12 +65,28 @@ class ActionHandlePyTorch(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        message = """Torch is a scientific computing framework that offers broad support for machine learning\n
-algorithms. It is a Lua based deep learning framework and is used widely amongst industry giants\n
-such as Facebook, Twitter, and Google."""
-        dispatcher.utter_message(text=message)
+#        message = """Torch is a scientific computing framework that offers broad support for machine learning\n
+#algorithms. It is a Lua based deep learning framework and is used widely amongst industry giants\n
+#such as Facebook, Twitter, and Google."""
+        suboption = tracker.get_slot("suboption")
+        if suboption is None:
+            # We are in the main menu
+            message = """What version of PyTorch do you want to explore ?\n
+            1. Version 0.x\n
+            2. Version 1.x"""
 
-        return []
+            dispatcher.utter_message(text=message)
+
+            # Indicate the submenu in which the options below will be processed
+            return [SlotSet('submenu', "pytorch_version")]
+        else:
+            # We are in a submenu
+            message = "Here is the version {} of PyTorch"
+            dispatcher.utter_message(text=message.format(suboption))
+
+            # Indicate the submenu in which the options below will be processed
+            return [SlotSet('submenu', "main"),
+                    SlotSet('suboption', None)]
 
 class ActionHandleTensorflow(Action):
 

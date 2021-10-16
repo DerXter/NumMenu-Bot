@@ -27,6 +27,11 @@ entities:
 slots:
   option:
     type: text
+  submenu:
+    type: text
+    initial_value: "main"
+  suboption:
+    type: text
 
 responses:
   utter_greet:
