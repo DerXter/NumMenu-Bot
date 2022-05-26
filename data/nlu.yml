@@ -1,4 +1,4 @@
-version: "2.0"
+version: "3.1"
 
 nlu:
 # See https://rasa.com/docs/rasa/nlu-training-data/#regular-expressions-for-entity-extraction

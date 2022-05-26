@@ -1,4 +1,4 @@
-version: "2.0"
+version: "3.1"
 
 intents:
   - greet
@@ -27,11 +27,22 @@ entities:
 slots:
   option:
     type: text
-  submenu:
+    mappings:
+    - type: from_entity
+      entity: option
+  # tracking in what submenu the user curtently is
+# this slot is only used in custom actions and is not related to any entity
+  submenu: 
     type: text
     initial_value: "main"
+    influence_conversation: false
+    mappings:
+    - type: custom
   suboption:
     type: text
+    influence_conversation: false
+    mappings:
+    - type: custom
 
 responses:
   utter_greet:
