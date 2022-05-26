@@ -1,6 +1,0 @@
-[
-  {
-    "name": "option",
-    "pattern": "\\d{1,2}"
-  }
-]
