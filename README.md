@@ -23,7 +23,7 @@ The goal is to give some design ideas and the bot could be further optimized.
 
 ## Install dependencies
 
-Run:
+Run :
 ```bash
 pip install -r requirements.txt
 ```
