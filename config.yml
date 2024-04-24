@@ -7,27 +7,28 @@ recipe: default.v1
 language: en
 
 pipeline:
-  - name: "WhitespaceTokenizer"
-  - name: "CountVectorsFeaturizer"
-  - name: CountVectorsFeaturizer
-    analyzer: char_wb
-    min_ngram: 1
-    max_ngram: 4
-  - name: RegexFeaturizer
-  - name: "DIETClassifier"
-    constrain_similarities: True
-  - name: FallbackClassifier
-    threshold: 0.5
-    ambiguity_threshold: 0.5
+- name: "WhitespaceTokenizer"
+- name: "CountVectorsFeaturizer"
+- name: CountVectorsFeaturizer
+  analyzer: char_wb
+  min_ngram: 1
+  max_ngram: 4
+- name: RegexFeaturizer
+- name: "DIETClassifier"
+  constrain_similarities: true
+- name: FallbackClassifier
+  threshold: 0.5
+  ambiguity_threshold: 0.5
 
 # Configuration for Rasa Core.
 # https://rasa.com/docs/rasa/core/policies/
 policies:
 # See https://rasa.com/docs/rasa/policies for more information.
-  - name: MemoizationPolicy
-  - name: RulePolicy
-    epochs: 100
-  - name: TEDPolicy
-    max_history: 5
-    epochs: 100
-    constrain_similarities: True
+- name: MemoizationPolicy
+- name: RulePolicy
+  epochs: 100
+- name: TEDPolicy
+  max_history: 5
+  epochs: 100
+  constrain_similarities: true
+assistant_id: 20240424-151807-honest-valve
