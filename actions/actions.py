@@ -9,6 +9,7 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.events import SlotSet, FollowupAction
 from rasa_sdk.executor import CollectingDispatcher
+import menus
 
 class ActionHandleOptions(Action):
 
@@ -36,12 +37,11 @@ class ActionHandleOptions(Action):
                                     }
                                 }
         try:
-            option = int(tracker.get_slot("option"))
-        except ValueError:
-            dispatcher.utter_message(text=f"Please enter a number!")
-            return [SlotSet('option', None)]
-        try:
+            option      = int(tracker.get_slot("option"))
             next_action = option2action_name[submenu][option]
+        except TypeError:
+            dispatcher.utter_message(text=f"Please enter a number!")
+            return [SlotSet('option', None)]          
         except KeyError:
             dispatcher.utter_message(text=f"This option is not available!")
             return [SlotSet('option', None)]
@@ -71,11 +71,7 @@ class ActionHandlePyTorch(Action):
         suboption = tracker.get_slot("suboption")
         if suboption is None:
             # We are in the main menu
-            message = """What version of PyTorch do you want to explore ?\n
-            1. Version 0.x\n
-            2. Version 1.x"""
-
-            dispatcher.utter_message(text=message)
+            dispatcher.utter_message(text=menus.pytorch_version)
 
             # Indicate the submenu in which the options below will be processed
             return [SlotSet('submenu', "pytorch_version")]
